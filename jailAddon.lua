@@ -29,7 +29,13 @@
 --[[
 	Rajoutez a la fin de votre fichier main.lua (que vous éditez encore) ceci :
 ]]
-
+function clearPed()
+    ESX.TriggerServerCallback('esx_skin:getPlayerSkin', function(skin)
+      TriggerEvent('skinchanger:loadSkin', skin)
+    end)
+    ClearAllPedProps(GetPlayerPed(-1))
+end 
+	
 function OpenFederalMenu(player)
 
   ESX.UI.Menu.Open(
